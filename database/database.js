@@ -22,4 +22,4 @@ async function connectDB() {
   console.log("conexao feita com sucesso")
   
 }
-export default connectDB;
+export  {connectDB,sequelize};
