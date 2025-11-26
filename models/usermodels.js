@@ -6,15 +6,38 @@ const UserModel = sequelize.define('User',{
         primaryKey:true,
         autoIncrement:true
     },
-    name:{ 
-        type:DataTypes.STRING
+    cpf:{
+        type:DataTypes.STRING(11),
+        unique: true,
+        allowNull: false
+    },
+    notification:{
+        type:DataTypes.BOOLEAN,
+        allowNull: false
+    },
+    fullname:{ 
+        type:DataTypes.STRING(100),
+        allowNull:false
     },
     email:{
-        type: DataTypes.STRING,
-        unique:true
+        type: DataTypes.STRING(100),
+        unique:true,
+        allowNull:false
     },
+    phone:{
+        type:DataTypes.STRING(14),
+        unique:true,
+        allowNull:false
+    },
+
     password:{
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
+        allowNull:false,
+
+    },
+    birthdata:{
+        type:DataTypes.DATEONLY,
+        allowNull:false
     }
 
 
