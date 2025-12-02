@@ -1,14 +1,29 @@
-import { UserModel } from "./usermodels";
-import { hobbies } from "./users_hobbies";
-UserModel.belongsToMany(hobbies,{
-    through:"UserHobbies",
-    foreignKey:"user_id",
-    otherKey:"hobbbes_id",
-    as:"hobbies"
-})
-hobbies.belongsToMany(UserModel,{
-    through:"UserHobbies",
-    foreignKey:"hobbbies_id",
-    otherKey:"user_id",
-    as:"users"
-})
+import { UserModel } from "./usermodels.js";
+import { HobbiesModel } from "./users_hobbies.js";
+
+UserModel.associate = function(models){
+    UserModel.belongsToMany(models.HobbiesModel,{
+        through:"users_hobbies",
+        as:"HobbiesModel",
+        foreignKey:"UserId",
+        otherKey:"hobbiesId"
+    })
+
+}
+
+
+HobbiesModel.associate = function(models){
+    HobbiesModel.belongsToMany(models.UserModel,{
+        through:"users_hobbies",
+        as:"UserModel",
+        foreignKey:"hobbiesId",
+        otherKey:"UserId"
+    })
+}
+
+const UserHobbies = {
+    hobbiesId:saveOrder.id,
+    UserId: item.id,
+
+}
+

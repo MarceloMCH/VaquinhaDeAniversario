@@ -1,8 +1,8 @@
 import { DataTypes } from '@sequelize/core';
 import { sequelize } from '../database/database.js';
 
-const hobbies = sequelize.define('Hobbies',{
-    id:{
+const HobbiesModel = sequelize.define('HobbiesModel',{
+    hobbiesId:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
@@ -14,4 +14,4 @@ const hobbies = sequelize.define('Hobbies',{
     }
 
 })
-export {hobbies}
+export {HobbiesModel}

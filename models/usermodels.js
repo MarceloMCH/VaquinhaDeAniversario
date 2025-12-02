@@ -1,11 +1,12 @@
 import { DataTypes } from '@sequelize/core';
 import { sequelize } from '../database/database.js';
 const UserModel = sequelize.define('User',{
-    id:{
+    UserId:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
+
     cpf:{
         type:DataTypes.STRING(11),
         unique: true,
